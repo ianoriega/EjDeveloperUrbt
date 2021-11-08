@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y0+7n98o1Q8JvVdzGRXV6383+U0aRwi1LeIWQJBgMFySA1AYpGBdeaXbisJiriPUEZjAtd94P5hdKDgTCzmlkw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Iñaki\\Desktop\\ejercicio Urbetrack\\Ejercicio para Developer Net 2\\NetExam\\NetExam.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Iñaki\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Iñaki\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
