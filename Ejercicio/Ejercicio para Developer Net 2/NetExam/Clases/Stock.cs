@@ -224,12 +224,5 @@ namespace NetExam.Clases
             else
               return aux;
         }
-
-        public void Resetear()
-        {
-            locales.Clear();
-            oficinas.Clear();
-            reservas.Clear();
-        }
     }
 }
