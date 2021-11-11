@@ -6,7 +6,7 @@ using System.Text;
 
 namespace NetExam.Clases
 {
-    class Office : IOffice
+    public class Office : IOffice
     {
 
         public string LocationName { get; }

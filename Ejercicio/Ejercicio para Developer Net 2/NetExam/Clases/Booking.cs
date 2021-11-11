@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NetExam.Clases
 {
-    class Booking : IBooking
+    public class Booking : IBooking
     {
         public DateTime DateTime { get; }
         public string OfficeName { get; }

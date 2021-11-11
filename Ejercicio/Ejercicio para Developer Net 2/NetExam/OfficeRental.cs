@@ -8,42 +8,49 @@
 
     public class OfficeRental : IOfficeRental
     {
+        Stock aux;
+        public OfficeRental()
+        {
+            aux = new Stock();
+        }
+
         public void AddLocation(LocationSpecs locationSpecs)
         {
+            
             Location location = new Location(locationSpecs.Name, locationSpecs.Neighborhood);
-            Stock.SetLocation(location);
+            aux.SetLocation(location);
         }
 
         public void AddOffice(OfficeSpecs officeSpecs) 
         {
             Office office = new Office(officeSpecs.LocationName, officeSpecs.Name, officeSpecs.MaxCapacity, officeSpecs.AvailableResources);    
-            Stock.SetOffice(office);
+            aux.SetOffice(office);
         }
 
         public void BookOffice(BookingRequest bookingRequest)
-        {
+        { 
             Booking booking = new Booking(bookingRequest.DateTime, bookingRequest.OfficeName);
-            Stock.SetBooking(booking);
+            aux.SetBooking(booking);
         }
 
         public IEnumerable<IBooking> GetBookings(string locationName, string officeName)
         {
-            return Stock.GetBookings();
+            return aux.GetBookings();
         }
 
         public IEnumerable<ILocation> GetLocations()
         {
-            return Stock.GetLocations();
+            return aux.GetLocations();
         }
 
         public IEnumerable<IOffice> GetOffices(string locationName)
         {
-            return Stock.GetOffices();
+            return aux.GetOffices();
         }
 
         public IEnumerable<IOffice> GetOfficeSuggestion(SuggestionRequest suggestionRequest)
-        {
-           return Stock.GetOficinasEspecificas(suggestionRequest);
+        { 
+            return aux.GetOficinasEspecificas(suggestionRequest);
         }
     }
 }

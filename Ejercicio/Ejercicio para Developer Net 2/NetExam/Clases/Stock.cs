@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace NetExam.Clases
 {
-    static class Stock
+    public class Stock
     {
-        static List<Location> locales;
-        static List<Office> oficinas;
-        static List<Booking> reservas;
+        List<Location> locales;
+        List<Office> oficinas;
+        List<Booking> reservas;
 
-        static Stock()
+        public Stock()
         {
             locales = new List<Location>();
             oficinas = new List<Office>();
@@ -25,7 +25,7 @@ namespace NetExam.Clases
         /// Permite setear un nuevo local en locales
         /// </summary>
         /// <param name="location">Recibe el objeto a agregar</param>
-        public static void SetLocation(Location location)
+        public void SetLocation(Location location)
         {
             if (locales.Count() > 0)
             {
@@ -52,11 +52,11 @@ namespace NetExam.Clases
         /// Permite setear una nueva oficina a oficinas
         /// </summary>
         /// <param name="office">Recibe el objeto a agregar</param>
-        public static void SetOffice(Office office)
+        public void SetOffice(Office office)
         {
             if (locales.Count() == 0)
             {
-                NotAvailableExcption ex = 
+                NotAvailableExcption ex =
                     new NotAvailableExcption("Sin locales");
                 throw ex;
             }
@@ -76,7 +76,7 @@ namespace NetExam.Clases
 
                 if (!flagFind)
                 {
-                    NotFoundException ex2 = 
+                    NotFoundException ex2 =
                         new NotFoundException("Local inexistente");
                     throw ex2;
                 }
@@ -88,7 +88,7 @@ namespace NetExam.Clases
         /// Permite setear una reserva en reservas
         /// </summary>
         /// <param name="booking">Recibe el objeto a agregar</param>
-        public static void SetBooking(Booking booking)
+        public void SetBooking(Booking booking)
         {
             foreach (var item in oficinas)
             {
@@ -102,7 +102,7 @@ namespace NetExam.Clases
                     }
                     else
                     {
-                        NotAvailableExcption ex = 
+                        NotAvailableExcption ex =
                             new NotAvailableExcption("Oficina ya ocupada");
                         throw ex;
                     }
@@ -118,7 +118,7 @@ namespace NetExam.Clases
         /// Permite obtener los locales
         /// </summary>
         /// <returns>Listado de locales</returns>
-        public static IEnumerable<ILocation> GetLocations()
+        public IEnumerable<ILocation> GetLocations()
         {
             return locales.AsEnumerable();
         }
@@ -127,7 +127,7 @@ namespace NetExam.Clases
         /// Permite obtener las oficinas
         /// </summary>
         /// <returns>Listado de oficinas</returns>
-        public static IEnumerable<IOffice> GetOffices()
+        public IEnumerable<IOffice> GetOffices()
         {
             return oficinas.AsEnumerable();
         }
@@ -136,7 +136,7 @@ namespace NetExam.Clases
         /// Permite obtener las reservas
         /// </summary>
         /// <returns>Listado de reservas</returns>
-        public static IEnumerable<IBooking> GetBookings()
+        public IEnumerable<IBooking> GetBookings()
         {
             return reservas.AsEnumerable();
         }
@@ -148,7 +148,7 @@ namespace NetExam.Clases
         /// </summary>
         /// <param name="suggestionRequest">Recibe objeto con especificaciones</param>
         /// <returns>Listado de oficinas</returns>
-        public static IEnumerable<IOffice> GetOficinasEspecificas(SuggestionRequest suggestionRequest)
+        public IEnumerable<IOffice> GetOficinasEspecificas(SuggestionRequest suggestionRequest)
         {
             List<Office> auxOficinas = new List<Office>();
         
@@ -201,7 +201,7 @@ namespace NetExam.Clases
         /// <param name="oficinas">Recibe la lista de oficinas</param>
         /// <param name="barrio">Recibe el dato del barrio</param>
         /// <returns>Lista con las oficinas existentes en el barrio indicado</returns>
-        static List<Office> ListaPorBarrio(List<Office> oficinas, string barrio)
+        List<Office> ListaPorBarrio(List<Office> oficinas, string barrio)
         {
             List<Office> aux = new List<Office>();
             foreach (Office office in oficinas)
@@ -223,6 +223,13 @@ namespace NetExam.Clases
                 return oficinas;
             else
               return aux;
+        }
+
+        public void Resetear()
+        {
+            locales.Clear();
+            oficinas.Clear();
+            reservas.Clear();
         }
     }
 }
